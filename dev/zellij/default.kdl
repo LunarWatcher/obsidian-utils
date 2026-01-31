@@ -21,10 +21,6 @@ layout {
                 command "bash"
                 args "-c" "./scripts/e2e-test.sh"
             }
-            pane name="Unit tests" {
-                command "bash"
-                args "-c" "npm run test -- --watch"
-            }
         }
     }
     tab name="There's a special place in hell for eslint" {
