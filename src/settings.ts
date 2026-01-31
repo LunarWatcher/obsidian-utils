@@ -1,7 +1,8 @@
 import LiviUtilsPlugin from "main";
-import { App, Notice, PluginSettingTab, Setting } from "obsidian";
+import { App, PluginSettingTab, Setting } from "obsidian";
 
-export interface settings_t {
+// Suppress: settings are a placeholder and eslint is being fucking stupid
+export interface settings_t { // eslint-disable-line
 }
 
 export const DEFAULT_SETTINGS: settings_t = {

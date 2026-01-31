@@ -7,32 +7,33 @@ export default class EmbedCodeBlockProcessor {
     this.app = app
     plugin.registerMarkdownCodeBlockProcessor(
       "inline-canvas",
+      // eslint cannot cast the type to the handler type, and if I explicitly specify the type, it's an unexpected any.
+      // Fuck you, typescript
+      // eslint-disable-next-line
       this.processCodeBlock.bind(this)
     );
   }
 
   async processCodeBlock(
     source: string, el: HTMLElement, ctx: MarkdownPostProcessorContext
-  ) {
+  ): Promise<void> {
     let dest = this.app.metadataCache.getFirstLinkpathDest(
       source, ctx.sourcePath
     );
 
     if (!dest) {
-      let elem = createEl("p");
+      let elem = el.createEl("p");
       elem.innerText = `Error: File not found: ${source}`;
-      elem.classList += "callout";
+      elem.classList.add("callout");
       elem.setAttribute("data-callout", "error")
-      el.appendChild(elem);
       return;
     }
 
     if (ctx.sourcePath == dest.path) {
-      let elem = createEl("p");
+      let elem = el.createEl("p");
       elem.innerText = `Cannot recursively include self`;
-      elem.classList += "callout";
+      elem.classList.add("callout");
       elem.setAttribute("data-callout", "error")
-      el.appendChild(elem);
       return;
     }
 
