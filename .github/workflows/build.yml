@@ -1,0 +1,92 @@
+name: Test and build nightly artefacts
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  artefacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deps
+        run: npm i
+      - name: Build
+        run: npm run build
+      - name: Run tests
+        run: npm run test
+      - name: Assemble artefacts
+        run: |
+          OUTPUT=webdav-sync
+          mkdir $OUTPUT
+          cp styles.css $OUTPUT
+          cp main.js $OUTPUT
+          cp manifest.json $OUTPUT
+          ls $OUTPUT
+      - uses: actions/upload-artifact@v4
+        with:
+          name: webdav-sync
+          path: webdav-sync
+          if-no-files-found: error
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deps
+        run: npm i -D
+      - name: Lint
+        run: npx eslint
+  integration:
+    needs: artefacts
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            artefact: '*_amd64.deb'
+          - os: windows-2025
+            artefact: '*.exe'
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: printenv
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Npm dev deps
+        run: |
+          npm i --include=dev
+      - name: Download dist artefacts
+        uses: actions/download-artifact@v5
+        with:
+          name: webdav-sync
+          path: dist/webdav-sync
+      - name: Show artefact tree
+        run: ls dist/webdav-sync
+
+      - name: Install Obsidian
+        id: yoink
+        timeout-minutes: 2
+        uses: LunarWatcher/install-obsidian@master
+
+      - name: Python deps
+        working-directory: integration-test/
+        run: |
+          pip3 install --break-system-packages -r requirements.txt 
+      - name: Setup headless display
+        uses: pyvista/setup-headless-display-action@v3
+      - name: Run tests
+        working-directory: integration-test/
+        run: |
+          python3 -m pytest
+        env:
+          OBSIDIAN_LOCATION: ${{ steps.yoink.outputs.path }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots-${{ matrix.os }}
+          path: integration-test/_screenshots
+          if-no-files-found: error

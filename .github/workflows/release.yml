@@ -1,0 +1,49 @@
+name: Upload release binaries
+on:
+  release:
+    types: [ published ]
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  artefacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deps
+        run: npm i
+      - name: Build
+        run: npm run build
+      - name: Assemble artefacts
+        run: |
+          OUTPUT=webdav-sync
+          mkdir $OUTPUT
+          cp styles.css $OUTPUT
+          cp main.js $OUTPUT
+          cp manifest.json $OUTPUT
+          ls $OUTPUT
+
+      - name: Compress folder
+        run: |
+          zip -r webdav-sync.zip webdav-sync/*
+      # For manual downloads
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: webdav-sync.zip
+          asset_name: webdav-sync.zip
+          tag: ${{ github.ref }}
+          overwrite: true
+      # For obsidian's package index
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: webdav-sync/*
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
+
