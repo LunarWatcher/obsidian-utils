@@ -8,7 +8,7 @@ if [[ "${VAULT_LOCATION}" == "" ]]; then
     exit -1
 fi
 
-DEST_FOLDER="${VAULT_LOCATION}/.obsidian/plugins/livi-sync"
+DEST_FOLDER="${VAULT_LOCATION}/.obsidian/plugins/livi-utils"
 mkdir -p "${DEST_FOLDER}/.obsidian/plugins"
 mkdir -p "${DEST_FOLDER}"
 

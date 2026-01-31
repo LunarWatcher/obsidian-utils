@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-DEST=dist/livi-sync
+DEST=dist/livi-utils
 mkdir -p dist
 mkdir -p $DEST
 

@@ -1,6 +1,6 @@
 {
     "id": "livi-utils",
-    "name": "Utils",
+    "name": "Livi utils",
     "version": "0.1.0",
     "minAppVersion": "1.11.5",
     "description": "Misc. utils",
