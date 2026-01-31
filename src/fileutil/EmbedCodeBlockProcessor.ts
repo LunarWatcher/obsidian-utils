@@ -14,19 +14,28 @@ export default class EmbedCodeBlockProcessor {
   async processCodeBlock(
     source: string, el: HTMLElement, ctx: MarkdownPostProcessorContext
   ) {
-
-    if (source == ctx.sourcePath) {
-      el.appendText("Cannot recursively render self");
-      return;
-    }
-
     let dest = this.app.metadataCache.getFirstLinkpathDest(
       source, ctx.sourcePath
     );
+
     if (!dest) {
-      el.appendText("File not found");
+      let elem = createEl("p");
+      elem.innerText = `Error: File not found: ${source}`;
+      elem.classList += "callout";
+      elem.setAttribute("data-callout", "error")
+      el.appendChild(elem);
       return;
     }
+
+    if (ctx.sourcePath == dest.path) {
+      let elem = createEl("p");
+      elem.innerText = `Cannot recursively include self`;
+      elem.classList += "callout";
+      elem.setAttribute("data-callout", "error")
+      el.appendChild(elem);
+      return;
+    }
+
     let leaf = this.app.workspace.getLeaf(true);
     leaf.detach();
     await leaf.openFile(

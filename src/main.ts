@@ -1,6 +1,5 @@
-import { inlineCanvasRenderer } from 'canvasutil/InlineCanvasRenderer';
 import EmbedCodeBlockProcessor from 'fileutil/EmbedCodeBlockProcessor';
-import {Plugin, MarkdownPostProcessorContext} from 'obsidian';
+import {Plugin} from 'obsidian';
 import {DEFAULT_SETTINGS, settings_t, LiviUtilsSettingsTab} from 'settings';
 
 export default class LiviUtilsPlugin extends Plugin {
