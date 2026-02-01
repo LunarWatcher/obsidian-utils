@@ -39,7 +39,7 @@ def open_settings(driver: Chrome):
             "Canary: failed to open settings"
         )
 
-def click_settings_nav(driver: Chrome, text: str = "WebDAV sync"):
+def click_settings_nav(driver: Chrome, text: str = "Livi utils"):
     for elem in driver.find_elements(By.CLASS_NAME, "vertical-tab-nav-item"):
         if text in elem.text:
             elem.click()
@@ -93,7 +93,7 @@ def get_settings_data(driver: Chrome):
     return json.loads(execute(
         driver,
         """
-        JSON.stringify(app.plugins.plugins["livi-sync"].settings)
+        JSON.stringify(app.plugins.plugins["livi-utils"].settings)
         """
     )["result"]["value"])
 
@@ -120,9 +120,9 @@ def inject_settings(driver: Chrome, settings_object = None):
     out = execute(
         driver,
         """
-        app.plugins.plugins["livi-sync"].settings = JSON.parse('{1}');
-        app.plugins.plugins["livi-sync"].saveSettings();
-        app.plugins.plugins["livi-sync"].reloadClient();
+        app.plugins.plugins["livi-utils"].settings = JSON.parse('{1}');
+        app.plugins.plugins["livi-utils"].saveSettings();
+        app.plugins.plugins["livi-utils"].reloadClient();
         0
         """.format(
             json.dumps(settings_object)
