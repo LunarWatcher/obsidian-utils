@@ -32,7 +32,7 @@ def vault():
         "./test-vaults/trans-rights-are-human-rights/",
         test_vault
     )
-    _install_plugin(test_vault, "../dist/webdav-sync")
+    _install_plugin(test_vault, "../dist/livi-utils")
     yield test_vault
 
     shutil.rmtree(test_vault)
@@ -130,7 +130,7 @@ def copyparty():
 def _install_plugin(vault_path: str, plugin_dist_path: str):
     if not os.path.exists(plugin_dist_path):
         raise RuntimeError(
-            "Developer error: <git root>/dist/webdav-sync doesn't exist"
+            "Developer error: <git root>/dist/livi-utils doesn't exist"
         )
     shutil.copytree(
         plugin_dist_path,
@@ -143,7 +143,7 @@ def _install_plugin(vault_path: str, plugin_dist_path: str):
             vault_path,
             ".obsidian",
             "plugins",
-            "webdav-sync"
+            "livi-utils"
         ),
     )
 

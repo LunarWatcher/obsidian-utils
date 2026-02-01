@@ -40,4 +40,4 @@ Obsidian link
 
 This is redundant in the editor and reader views, but it's necessary for the graph to see the link. This flaw may be addressed later, but Obsidian's facilities for fucking around with other parts of markdown are either non-existent or awfully documented (or both).
 
-Also note that, although a full editor is embedded, canvases in particular assume they're the top of the root-level editor node, so editing an embedded canvas is pretty broken.
+Also note that, although a full editor is embedded, canvases in particular assume they're the top of the root-level editor node, so editing an embedded canvas is pretty broken. This may be fixed in the future if there's a way to hack around the inner container identifying the root-level editor container as its parent rather than the immediate editor container.
