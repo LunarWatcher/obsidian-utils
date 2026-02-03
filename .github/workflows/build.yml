@@ -107,4 +107,4 @@ jobs:
         with:
           name: screenshots-${{ matrix.os }}
           path: integration-test/_screenshots
-          if-no-files-found: error
+          if-no-files-found: warn
