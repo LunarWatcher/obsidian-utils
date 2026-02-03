@@ -9,7 +9,7 @@ This can be used to embed arbitrary files as long as it's supported by obsidian;
 
 Unfortunately, the canvas embed is absolutely fucking worthless:
 
-![Screenshot showing the canvas embedding completely hiding all content](docs/images/file embedding-canvas embedding.png)
+![Screenshot showing the canvas embedding completely hiding all content](images/file embedding-canvas embedding.png)
 
 The option to show the content in full has been requested since [at least 2022](https://forum.obsidian.md/t/option-to-embed-canvas-in-a-note/50307), and has been stuck in purgatory since then.
 
