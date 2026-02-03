@@ -1,7 +1,7 @@
 {
     "id": "livi-utils",
     "name": "LiviUtils",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "minAppVersion": "1.11.5",
     "description": "Meta-plugin with misc. utility and QoL features.",
     "author": "Olivia",
