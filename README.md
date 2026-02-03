@@ -5,16 +5,8 @@ This is a utility plugin that adds misc. features to Obsidian. They're all bundl
 
 ## Features
 
-* [Arbitrary file embedding (including canvases)](docs/feats/FileEmbedding.md)
+* [Arbitrary file embedding (including canvases)](docs/features/FileEmbedding.md)
 
-## Installation
+## Installing and getting started
 
-### Manually
-
-From Releases on GitHub, download the bundled .zip file, unzip it and drop it into your vault (`.obsidian/plugins/livi-utils`)
-
-### Via BRAT 
-
-BRAT might also work, but has not been tested. If it doesn't work, consider opening an issue.
-
-
+See [Getting started](docs/Getting started.md).

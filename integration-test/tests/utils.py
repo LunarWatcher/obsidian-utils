@@ -39,7 +39,7 @@ def open_settings(driver: Chrome):
             "Canary: failed to open settings"
         )
 
-def click_settings_nav(driver: Chrome, text: str = "Livi utils"):
+def click_settings_nav(driver: Chrome, text: str = "LiviUtils"):
     for elem in driver.find_elements(By.CLASS_NAME, "vertical-tab-nav-item"):
         if text in elem.text:
             elem.click()

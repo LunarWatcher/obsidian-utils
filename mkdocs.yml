@@ -1,9 +1,9 @@
-site_name: Documentation for livi utils
+site_name: Documentation for LiviUtils
 nav:
   - Home: index.md
   - Getting started: Getting started.md
   - Features:
-    - Embedding files: feats/FileEmbedding.md
+    - Embedding files: features/FileEmbedding.md
 
 theme:
   name: material

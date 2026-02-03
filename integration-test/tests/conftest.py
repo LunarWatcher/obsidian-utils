@@ -1,4 +1,4 @@
-from tests.utils import execute
+from tests.utils import execute, close_notices
 import tests.utils
 from functools import partial
 import os

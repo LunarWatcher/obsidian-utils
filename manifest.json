@@ -1,9 +1,9 @@
 {
     "id": "livi-utils",
-    "name": "Livi utils",
+    "name": "LiviUtils",
     "version": "0.1.0",
     "minAppVersion": "1.11.5",
-    "description": "Misc. utils",
+    "description": "Meta-plugin with misc. utility and QoL plugins",
     "author": "Olivia",
     "authorUrl": "https://github.com/LunarWatcher/",
     "isDesktopOnly": false
