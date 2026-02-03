@@ -3,7 +3,7 @@
     "name": "LiviUtils",
     "version": "0.1.1",
     "minAppVersion": "1.11.5",
-    "description": "Meta-plugin with misc. utility and QoL plugins",
+    "description": "Meta-plugin with misc. utility and QoL features.",
     "author": "Olivia",
     "authorUrl": "https://github.com/LunarWatcher/",
     "isDesktopOnly": false
