@@ -9,4 +9,4 @@ This is a utility plugin that adds misc. features to Obsidian. They're all bundl
 
 ## Installing and getting started
 
-See [Getting started](docs/Getting started.md)
+See [Getting started](./docs/Getting started.md)
