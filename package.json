@@ -1,6 +1,6 @@
 {
     "name": "livi-utils",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Some misc. utilities and extensions",
     "main": "main.js",
     "scripts": {
