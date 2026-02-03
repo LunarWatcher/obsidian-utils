@@ -9,7 +9,7 @@ export default class EmbedCodeBlockProcessor {
       "inline-canvas",
       // eslint cannot cast the type to the handler type, and if I explicitly specify the type, it's an unexpected any.
       // Fuck you, typescript
-      // eslint-disable-next-line
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       this.processCodeBlock.bind(this)
     );
   }

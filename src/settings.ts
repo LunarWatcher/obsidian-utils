@@ -2,7 +2,7 @@ import LiviUtilsPlugin from "main";
 import { App, PluginSettingTab, Setting } from "obsidian";
 
 // Suppress: settings are a placeholder and eslint is being fucking stupid
-export interface settings_t { // eslint-disable-line
+export interface settings_t { // eslint-disable-line @typescript-eslint/no-empty-object-type
 }
 
 export const DEFAULT_SETTINGS: settings_t = {
