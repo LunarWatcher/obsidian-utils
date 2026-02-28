@@ -29,14 +29,6 @@ jobs:
           name: livi-utils
           path: livi-utils
           if-no-files-found: error
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Deps
-        run: npm i -D
-      - name: Lint
-        run: npx eslint
   get-webdriver:
     runs-on: ubuntu-latest
     outputs:
@@ -88,6 +80,9 @@ jobs:
         id: yoink
         timeout-minutes: 2
         uses: LunarWatcher/install-obsidian@master
+        with:
+          version: 1.11.7
+          latest: false
 
       - name: Python deps
         working-directory: integration-test/
