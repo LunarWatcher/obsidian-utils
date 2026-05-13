@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+Waste of a release to satisfy the review bot (again). Nothing of substance has changed.
+
 ## 0.1.2
 
 Waste of a release to satisfy the review bot. Nothing of substance has changed.
