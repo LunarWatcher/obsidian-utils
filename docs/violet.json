@@ -1,0 +1,17 @@
+{
+    "name": "Umbra",
+    "description": "This page contains the documentation for LiviUtils, an obsidian utility plugin.",
+    "prefix": "/obsidian-utils",
+    "theme": "_default",
+    "data": {
+        "language": "en-GB",
+        "repo": {
+            "name": "LunarWatcher/obsidian-utils",
+            "url": "https://codeberg.org/LunarWatcher/obsidian-utils",
+            "license": "LiviUtils is licensed under the <a href=\"https://codeberg.org/LunarWatcher/obsidian-utils/src/branch/master/LICENSE\">MIT license</a>."
+        }
+    },
+    "exclude": [
+        "LICENSE"
+    ]
+}
