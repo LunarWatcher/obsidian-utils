@@ -12,9 +12,10 @@ If you prefer, you can alternatively [download a nightly version](https://github
 
 BRAT might also work, but has not been tested. If it doesn't work, consider opening an issue.
 
-### Obsidian plugin registry (not supported yet)
+### Obsidian plugin registry
 
-Because of Obsidian's ridiculously slow review cycle, this plugin may or may not be in the registry within 6-12 months. Until then, use BRAT or install manually.
+[https://community.obsidian.md/plugins/livi-utils](https://community.obsidian.md/plugins/livi-utils)
+
 
 ## Next steps
 
